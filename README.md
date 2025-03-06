@@ -1,61 +1,14 @@
-# YOLOv7-Pose-on-Custom-Dataset:
+#TheGuardian프로젝트
+- - -
++ 안녕하세요 경동대학교 4학년 1학기 졸업작품으로 진행한 TheGuardian 작품입니다.
++ 조원은 남기찬(조장), 이성혁, 임경훈 세 명으로 이룬 프로젝트입니다.
 
-## Keypoint detection on custom dataset. We have 1 class - Glass and it have 4 keypoints. In this this tutorial we will train our yolov7 model to detect these 4 custom keypoints
+__TheGuardian의 개발 계기는__ 급속도로 고령화가 진행되는 우리 사회에서 __지킴 받지 못하는__ 노인들에게 특화된 프로젝트입니다.
+길거리에 무수히 많은 CCTV에서 24시간 대한민국 모든 곳을 감시하곤 있지만 그건 사람이 직접 발견했을때의 이야기이고,
+__무더위, 한파로 인한 빙결, 건강 악화로 인한 쓰러짐 등 언제 일어날지 모르는 사고에 예방하기는 쉽지 않습니다.__
+하지만 TheGuardian의 YOLOv7과 함께 융합하여 이 문제를 해결할 수 있습니다.
+__쓰러져 있는 사람과, 누워있는 사람의 데이터셋을 종합하여__ 해당 사람이 위험하다고 판단되면 즉시 웹에 경고가 오는 형식입니다.
 
-![image](https://user-images.githubusercontent.com/60029146/235298070-9b18bd05-64f6-4957-8c2b-f8e6faeacd13.png)
+사회적으로 개개인으로 고립되는 이 사회에서 일어날만한 문제를 해결하기 위해 이 프로젝트를 진행하게 되었습니다.
 
-![image](https://user-images.githubusercontent.com/60029146/235298504-be7c9cdb-4368-4d13-b87d-c5d066bd08ab.png)
-
-
-
-
-
-# Data Prepration:
-
-Install Docker on your system if you haven't already. You can download it from the official website: https://www.docker.com/get-started
-
-Now,Installing coco-annotator using docker:
-
-    git clone https://github.com/jsbroks/coco-annotator.git 
-
-    cd coco-annotator 
-
-    docker-compose up
-
-    http://localhost:5000/
-
-    Learn how to annotate: https://www.youtube.com/watch?v=OMJRcjnMMok&t=1s  
-
-
-### Next step is to convert json format annotations into YOLO format. 
-
-    Refernce for conversion:  https://github.com/WongKinYiu/yolov7/issues/1103
-    
-
-### Now, Dataset is ready. Clone this github repo: 
-
-        git clone https://github.com/AarohiSingla/YOLOv7-POSE-on-Custom-Dataset
-
-        cd YOLOv7-POSE-on-Custom-Dataset
-
-        pip install -r requirements.txt
-        
-        Place your dataset folder in this repo.
-        
-### Make all the changes which are mentioned in this video: https://youtu.be/OP-oiDsEVzc
-        
-For Training: 
-
-      !python train.py --data data/custom_kpts.yaml --cfg cfg/yolov7-w6-pose_custom.yaml --hyp data/hyp.pose.yaml --device 0 --kpt-label --epochs 600
-            
-For Keypoint Detection: 
-
-     !python detect.py --weights runs/train/exp3/weights/best.pt --kpt-label --source 1.jpg --conf 0.030 --iou 0.30
-
-
-
-Reference: 
-
-        https://github.com/WongKinYiu/yolov7/tree/pose
-
-        https://github.com/ruiz-manuel/yolov7-pose-custom               
+![TheGuardian포스터](https://github.com/user-attachments/assets/a16bdd8e-0e0d-45c4-9861-935601db9fe2)
